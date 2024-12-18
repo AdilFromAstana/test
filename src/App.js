@@ -29,7 +29,7 @@ const App = () => {
             </div>
           </Header>
 
-          <Content style={{ padding: "20px" }}>
+          <Content style={{ padding: "20px 0px" }}>
             <Switch>
               <Route exact path="/" component={TestUploadPage} />
               <Route path="/test/:testId" component={TestPage} />
