@@ -49,6 +49,7 @@ body {
 
 /* Общий контейнер */
 .test-container {
+  width: 100vw;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -64,8 +65,11 @@ body {
 }
 
 .ant-card-head-title {
+  overflow: auto !important;
+  display: block !important;
   text-wrap: wrap !important;
   white-space: wrap !important;
+  text-overflow: inherit !important;
 }
 
 /* Центральный блок с карточкой */
