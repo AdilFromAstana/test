@@ -1,0 +1,101 @@
+/* Общие стили */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.ant-layout-header {
+  background-color: #1890ff !important;
+  text-align: center;
+}
+
+.ant-layout-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Полная высота */
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.ant-card {
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.ant-btn-primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.centered {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Общий контейнер */
+.test-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  /* Занимает всю высоту */
+  box-sizing: border-box;
+}
+
+/* Dropdown сверху */
+.question-select {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.ant-card-head-title {
+  text-wrap: wrap !important;
+  white-space: wrap !important;
+}
+
+/* Центральный блок с карточкой */
+.question-card {
+  flex: 1;
+  /* Растягивает карточку на всю доступную высоту */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Содержимое карточки растягивается */
+.ant-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ant-card-body::before,
+.ant-card-body::after,
+.ant-card-head::after,
+.ant-card-head::before {
+  content: none !important;
+  /* Полностью удаляем содержимое */
+  display: none !important;
+  /* Убираем элемент из потока */
+}
+
+/* Кнопки внизу */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}

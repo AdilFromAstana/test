@@ -1,0 +1,17 @@
+/* Скрываем кнопку Drawer на десктопе */
+.mobile-menu-button {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    /* Скрываем десктопное меню на мобильных устройствах */
+    .desktop-menu {
+        display: none;
+    }
+
+    /* Показываем кнопку для Drawer */
+    .mobile-menu-button {
+        display: block;
+    }
+}
