@@ -1,6 +1,12 @@
 import React from "react";
 import { Layout, Typography, Menu } from "antd";
-import { BrowserRouter as Router, Route, Switch, Link, useHistory } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  useHistory,
+} from "react-router-dom";
 import { isMobile } from "react-device-detect";
 import { TestProvider } from "./components/TestContext";
 import TestUpload from "./components/TestUpload";
@@ -18,8 +24,22 @@ const App = () => {
     <TestProvider>
       <Router>
         <Layout style={{ minHeight: "100vh" }}>
-          <Header style={{ background: "#001529", position: "sticky", top: 0, zIndex: 1000 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: '100%' }}>
+          <Header
+            style={{
+              background: "#001529",
+              position: "sticky",
+              top: 0,
+              zIndex: 1000,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                height: "100%",
+              }}
+            >
               <Link to="/">
                 <Title level={3} style={{ color: "white", margin: 0 }}>
                   Әділ Тест
@@ -61,13 +81,13 @@ const TestUploadPage = () => {
   const handleTestStart = (data) => {
     const testId = Date.now().toString(); // Генерация уникального ID
     setCurrentTestId(testId); // Устанавливаем текущий ID в контекст
+    console.log("data: ", data);
     setCurrentTestData(data); // Сохраняем данные теста в контексте
     history.push(`/test/${testId}`); // Переходим на страницу прохождения теста
   };
 
   return <TestUpload onUpload={handleTestStart} />;
 };
-
 
 const TestPage = () => {
   const { currentTestData, clearTest } = useTestContext();
@@ -85,6 +105,5 @@ const TestPage = () => {
     />
   );
 };
-
 
 export default App;
