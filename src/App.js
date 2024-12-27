@@ -81,7 +81,6 @@ const TestUploadPage = () => {
   const handleTestStart = (data) => {
     const testId = Date.now().toString(); // Генерация уникального ID
     setCurrentTestId(testId); // Устанавливаем текущий ID в контекст
-    console.log("data: ", data);
     setCurrentTestData(data); // Сохраняем данные теста в контексте
     history.push(`/test/${testId}`); // Переходим на страницу прохождения теста
   };

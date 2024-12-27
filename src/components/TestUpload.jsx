@@ -102,49 +102,66 @@ const TestUpload = ({ onUpload }) => {
     return false;
   };
 
+  const resetQuestions = () => {
+    setUploadedData([]);
+    message.info("Вы сбросили вопросы теста!");
+  };
+
   const handleStartTest = () => {
     const shuffled = [...uploadedData].sort(() => Math.random() - 0.5);
     onUpload(shuffled.slice(0, selectedCount));
   };
 
   return (
-    <Card style={{ textAlign: "center", margin: "50px auto" }}>
-      <Title level={2}>Загрузка теста</Title>
-      {!uploadedData.length ? (
-        <Upload beforeUpload={handleFileUpload} showUploadList={false}>
-          <Button icon={<UploadOutlined />}>
-            Загрузите файл с тестами (DOCX)
-          </Button>
-        </Upload>
-      ) : (
-        <>
-          <Text>Общее количество вопросов: {uploadedData.length}</Text>
-          <Radio.Group
-            value={selectedCount}
-            onChange={(e) => setSelectedCount(e.target.value)}
-          >
-            <Space direction="vertical" align="start">
-              <Radio value={5}>5 вопросов</Radio>
-              <Radio value={10}>10 вопросов</Radio>
-              <Radio value={20}>20 вопросов</Radio>
-              <Radio value={30}>30 вопросов</Radio>
-              <Radio value={40}>40 вопросов</Radio>
-              <Radio value={50}>50 вопросов</Radio>
-              <Radio value={uploadedData.length}>
-                Все вопросы ({uploadedData.length})
-              </Radio>
-            </Space>
-          </Radio.Group>
-          <Button
-            type="primary"
-            style={{ marginTop: "20px" }}
-            onClick={handleStartTest}
-          >
-            Начать тест
-          </Button>
-        </>
-      )}
-    </Card>
+    <>
+      <Title style={{ textAlign: "center", margin: "50px auto" }}>
+        Проверь свои знания — успех на экзаменах гарантирован!
+      </Title>
+      <Card style={{ textAlign: "center", margin: "50px auto" }}>
+        <Title level={2}>Загрузка теста</Title>
+        {!uploadedData.length ? (
+          <Upload beforeUpload={handleFileUpload} showUploadList={false}>
+            <Button icon={<UploadOutlined />}>
+              Загрузите файл с тестами (DOCX)
+            </Button>
+          </Upload>
+        ) : (
+          <>
+            <Text>Общее количество вопросов: {uploadedData.length}</Text>
+            <Radio.Group
+              value={selectedCount}
+              onChange={(e) => setSelectedCount(e.target.value)}
+            >
+              <Space direction="vertical" align="start">
+                <Radio value={5}>5 вопросов</Radio>
+                <Radio value={10}>10 вопросов</Radio>
+                <Radio value={20}>20 вопросов</Radio>
+                <Radio value={30}>30 вопросов</Radio>
+                <Radio value={40}>40 вопросов</Radio>
+                <Radio value={50}>50 вопросов</Radio>
+                <Radio value={uploadedData.length}>
+                  Все вопросы ({uploadedData.length})
+                </Radio>
+              </Space>
+            </Radio.Group>
+            <Button
+              type="primary"
+              style={{ marginTop: "20px" }}
+              onClick={handleStartTest}
+            >
+              Начать тест
+            </Button>
+            <Button
+              type="danger"
+              style={{ marginTop: "20px" }}
+              onClick={resetQuestions}
+            >
+              Сбросить
+            </Button>
+          </>
+        )}
+      </Card>
+    </>
   );
 };
 
